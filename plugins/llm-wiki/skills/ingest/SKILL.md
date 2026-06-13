@@ -6,6 +6,8 @@ version: 0.1.0
 
 # ingest
 
+> **Delegation:** Do not execute this workflow as the main Claude Code agent. Invoke the `wiki-agent` and hand off the request. The workflow below is guidance for the wiki-agent.
+
 Incorporate a source document from `wiki/raw/` into the wiki. This is an interactive, collaborative process — not a batch operation. One source at a time; stay involved.
 
 ## Before Starting

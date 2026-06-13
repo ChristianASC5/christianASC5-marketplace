@@ -6,6 +6,8 @@ version: 0.1.0
 
 # query
 
+> **Delegation:** Do not execute this workflow as the main Claude Code agent. Invoke the `wiki-agent` and hand off the request. The workflow below is guidance for the wiki-agent.
+
 Answer a question by retrieving and synthesizing content from the wiki. The goal is grounded answers — drawn from the wiki's accumulated knowledge, with citations — not from general training data.
 
 ## Before Starting

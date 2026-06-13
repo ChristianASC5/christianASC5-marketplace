@@ -6,6 +6,8 @@ version: 0.1.0
 
 # lint
 
+> **Delegation:** Do not execute this workflow as the main Claude Code agent. Invoke the `wiki-agent` and hand off the request. The workflow below is guidance for the wiki-agent.
+
 Audit the wiki for structural and content health issues. Produce a prioritized report and offer to fix what can be fixed automatically.
 
 ## Before Starting

@@ -6,6 +6,8 @@ version: 0.1.0
 
 # capture
 
+> **Delegation:** Do not execute this workflow as the main Claude Code agent. Invoke the `wiki-agent` and hand off the request. The workflow below is guidance for the wiki-agent.
+
 Extract and persist knowledge from the current session into the wiki. Use this when a conversation has produced something worth keeping — a decision, a pattern, a gotcha, a clarification — that would otherwise be lost when the session ends.
 
 This is distinct from `ingest`, which processes source documents from `wiki/raw/`. Capture's source is the conversation itself.

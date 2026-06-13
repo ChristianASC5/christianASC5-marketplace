@@ -1,0 +1,15 @@
+{
+  "name": "christianASC5-marketplace",
+  "owner": {
+    "name": "ChristianASC5",
+    "email": "cnicolas3411@gmail.com"
+  },
+  "description": "Personal Claude Code plugin marketplace.",
+  "plugins": [
+    {
+      "name": "llm-wiki",
+      "source": "./plugins/llm-wiki",
+      "description": "Persistent, compounding knowledge base for your project — maintained by Claude, inspired by Karpathy's LLM Wiki pattern."
+    }
+  ]
+}

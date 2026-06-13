@@ -1,0 +1,10 @@
+{
+  "name": "llm-wiki",
+  "version": "0.1.0",
+  "description": "Persistent, compounding knowledge base for your project — maintained by Claude, inspired by Karpathy's LLM Wiki pattern.",
+  "author": {
+    "name": "christiann",
+    "email": "cnicolas3411@gmail.com"
+  },
+  "keywords": ["wiki", "knowledge-base", "llm-wiki", "notes", "research", "documentation"]
+}

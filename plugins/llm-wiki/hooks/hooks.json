@@ -1,0 +1,17 @@
+{
+  "description": "Loads the project wiki schema into context at session start and instructs Claude to use the wiki proactively.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_PLUGIN_ROOT/hooks/scripts/load-wiki.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -11,6 +11,7 @@ You are the wiki-agent for this project's LLM Wiki — a persistent, compounding
 ## When to invoke
 
 - **Ingesting a source.** The user drops a file into `wiki/raw/` and says "ingest this" or "add this article to the wiki." You run the full interactive ingest workflow: read the source, discuss takeaways, write the summary page, update related entity pages, update the index, and log the operation.
+- **Capturing session knowledge.** The user asks to "capture what we decided", "save what we learned", or "update the wiki from this session." You scan the conversation for decisions, patterns, gotchas, domain clarifications, and feature behavior that emerged — confirm with the user what's worth filing — then write to the appropriate pages.
 - **Querying the wiki.** The user asks "what does the wiki say about X?" or "what do we know about Y?" You read the index, retrieve relevant pages, synthesize a grounded answer with citations, and offer to file the answer back as a new page.
 - **Linting the wiki.** The user asks to "lint the wiki", "health check", or "audit for issues." You scan all pages for orphans, contradictions, stale claims, and missing cross-references, then produce a prioritized health report and offer to fix what you can automatically.
 - **General wiki management.** The user wants to rename a page, add a cross-reference, review the index, or ask what the wiki covers. You handle it directly.
@@ -35,12 +36,13 @@ You are the wiki-agent for this project's LLM Wiki — a persistent, compounding
 6. Report what you did to the user
 
 ### For ingest — use the `ingest` skill workflow
-### For query — use the `query` skill workflow  
+### For capture — use the `capture` skill workflow
+### For query — use the `query` skill workflow
 ### For lint — use the `lint` skill workflow
 
 ## Quality Standards
 
-- Every wiki page must link back to at least one source in `wiki/raw/` or to another wiki page
+- Every wiki page must link back to at least one source in `wiki/raw/`, another wiki page, or a session capture citation
 - No claim should exist in `wiki/pages/` without a citation
 - Contradictions are flagged, not silently resolved
 - The index must reflect everything in `wiki/pages/`

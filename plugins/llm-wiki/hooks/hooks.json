@@ -1,5 +1,5 @@
 {
-  "description": "Loads the project wiki schema into context at session start and instructs Claude to use the wiki proactively.",
+  "description": "Loads the project wiki schema at session start; suggests capturing session knowledge before stopping.",
   "hooks": {
     "SessionStart": [
       {
@@ -9,6 +9,17 @@
             "type": "command",
             "command": "bash $CLAUDE_PLUGIN_ROOT/hooks/scripts/load-wiki.sh",
             "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "A project wiki is active in this session (wiki/ directory exists). Before stopping, review the conversation and check: were any decisions made, implementation patterns established, gotchas discovered, or domain knowledge clarified that isn't already in the wiki? If yes, output a systemMessage suggesting the user run the capture skill ('ask the wiki-agent to capture this session') before closing. Keep the suggestion to one sentence. If nothing wiki-worthy happened, approve the stop silently without any message."
           }
         ]
       }

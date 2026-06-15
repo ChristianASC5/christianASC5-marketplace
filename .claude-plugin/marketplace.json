@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "llm-wiki",
-      "version": "0.5.2",
+      "version": "0.5.3",
       "source": "./plugins/llm-wiki",
       "description": "Persistent, compounding knowledge base for your project — maintained by Claude, inspired by Karpathy's LLM Wiki pattern."
     }

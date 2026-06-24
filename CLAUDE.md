@@ -19,3 +19,13 @@ from (cached under `~/.claude/plugins/cache/` and
   differs from what's in this repo, that's a sign changes were made
   directly to the installed copy and never synced back — pull those
   changes into the plugin's source repo first, then into this repo.
+
+## Versioning
+
+`.claude-plugin/marketplace.json` pins a `version` per plugin in
+`plugins[]`. This does **not** auto-update when a plugin's own
+`plugin.json` is bumped — it has drifted silently before (stuck at an
+old version while `plugin.json` moved ahead). Whenever a plugin's
+version changes, update the matching entry here in the same commit,
+and propagate to the live installed copy at
+`~/.claude/plugins/marketplaces/christianASC5-marketplace/.claude-plugin/marketplace.json`.

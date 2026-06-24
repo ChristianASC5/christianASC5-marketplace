@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 # Stop hook: nudges Claude to consider a wiki capture, only when a wiki exists.
-# Non-blocking: uses hookSpecificOutput.additionalContext, not decision:block.
+# additionalContext (like decision:block) keeps the turn going through the same
+# stop_hook_active loop protection — skip entirely once already active to avoid
+# retriggering ourselves every continuation.
 
 set -euo pipefail
+
+INPUT=$(cat)
+STOP_HOOK_ACTIVE=$(jq -r '.stop_hook_active // false' <<<"$INPUT")
+
+if [ "$STOP_HOOK_ACTIVE" = "true" ]; then
+  exit 0
+fi
 
 WIKI_DIR="${CLAUDE_PROJECT_DIR:-$(pwd)}/wiki"
 

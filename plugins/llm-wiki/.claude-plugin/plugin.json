@@ -1,6 +1,6 @@
 {
   "name": "llm-wiki",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "Persistent, compounding knowledge base for your project — maintained by Claude, inspired by Karpathy's LLM Wiki pattern.",
   "author": {
     "name": "christiann",

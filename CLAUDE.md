@@ -19,6 +19,13 @@ from (cached under `~/.claude/plugins/cache/` and
   differs from what's in this repo, that's a sign changes were made
   directly to the installed copy and never synced back — pull those
   changes into the plugin's source repo first, then into this repo.
+- **Never edit the live installed copy under `~/.claude/plugins/...`
+  directly — including during development or debugging.** Testing a
+  hook or script change live there feels faster, but it has already
+  caused undetected drift once. Make the change in the plugin's source
+  repo, propagate it here, then to the live install, then restart the
+  Claude Code session to pick it up (hooks load at session start and
+  won't hot-reload).
 
 ## Versioning
 

@@ -14,7 +14,12 @@ fi
 
 # Wiki exists but no schema yet — minimal reminder
 if [ ! -f "$SCHEMA_FILE" ]; then
-  jq -n '{"systemMessage": "This project has a wiki/ directory but no wiki/CLAUDE.md schema file. The wiki may be incomplete. Consider running /llm-wiki:create-wiki to initialize it, or check wiki/ manually."}'
+  jq -n --arg msg "This project has a wiki/ directory but no wiki/CLAUDE.md schema file. The wiki may be incomplete. Consider running /llm-wiki:create-wiki to initialize it, or check wiki/ manually." '{
+    "hookSpecificOutput": {
+      "hookEventName": "SessionStart",
+      "additionalContext": $msg
+    }
+  }'
   exit 0
 fi
 
@@ -35,4 +40,9 @@ This project has an active LLM Wiki. Use it proactively throughout this session.
 
 "
 
-jq -n --arg msg "${PREAMBLE}${SCHEMA}" '{"systemMessage": $msg}'
+jq -n --arg msg "${PREAMBLE}${SCHEMA}" '{
+  "hookSpecificOutput": {
+    "hookEventName": "SessionStart",
+    "additionalContext": $msg
+  }
+}'
